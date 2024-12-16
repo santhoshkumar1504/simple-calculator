@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: aquamarine;
+            text-align: center;
+                       max-height: 100vh;
+            max-width: 100vw;
+        }
+        .new
+        {
+            display: flex;
+            justify-content:center ;
+            align-items: center;
+        }
+        h1{
+            margin-top: 40px;
+            margin-bottom: 40px;
+            display: inline;
+        }
+        .cal{
+            background-color: rgb(0, 0, 0);
+            position: relative;
+            padding: 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            width: 30%;
+        }
+        #display{
+            background-color: white;
+            margin-top: 25px;
+            padding: 20px;
+            width: 75%;
+            color: black;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: x-large;
+            margin-bottom: 20px;
+        }
+        .cal button{
+            padding: 15px 20px;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 5px;
+            display: flex;
+     
+            cursor: pointer;
+            align-items: center;
+            margin-top: 12px;
+        }
+        #c{
+            background-color: red;
+            border: 1px solid red;
+        }
+        #equal{
+            background-color: green;
+            border:1px solid green;
+        }
+        @media(max-width:576px)
+        {
+            .cal{
+           
+            width: 80%;
+        }
+        }
+        @media(min-width:577px)
+        {
+            .cal{
+           
+            width: 60%;
+        }
+        }
+        @media(min-width:998px)
+        {
+            .cal{
+           
+            width: 30%;
+        }
+        }
+    </style>
+</head>
+<body>
+    <h2 class="m-3">CALCULATOR</h2>
+    <div class="new">
+    <div class="col-lg-6 col-sm-10 cal">
+        <input type="text" id="display" disabled>
+        <div class="row">
+            <div class="col-3"><button onclick="add('1')">1</button></div>
+            <div class="col-3"><button onclick="add('2')">2</button></div>
+            <div class="col-3"> <button onclick="add('3')">3</button></div>
+            <div class="col-3"><button onclick="add('+')">+</button></div>
+            
+        </div>
+        <div class="row">
+            <div class="col-3"><button onclick="add('4')">4</button></div>
+            <div class="col-3"><button onclick="add('5')">5</button></div>
+            <div class="col-3"><button onclick="add('6')">6</button></div>
+            <div class="col-3"><button onclick="add('-')">-</button></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-3"><button onclick="add('7')">7</button></div>
+            <div class="col-3"><button onclick="add('8')">8</button></div>
+            <div class="col-3">  <button onclick="add('9')">9</button></div>
+            <div class="col-3"><button onclick="add('*')">*</button></div>
+            
+        </div>
+       
+        <div class="row">
+            <div class="col-3"> <button id="c" onclick="cleared()">C</button></div>
+            <div class="col-3"> <button onclick="add('0')">0</button></div>
+            <div class="col-3"> <button id="equal" onclick="res()">=</button></div>
+            <div class="col-3"><button onclick="add('/')">/</button></div>
+            
+        </div>
+           
+              
+    </div>
+</div>
+    <script>
+        function add(value)
+        {
+            document.getElementById("display").value+=value;
+        }
+        function cleared()
+        {
+            document.getElementById("display").value="";
+        }
+        function res()
+        {
+            try{
+                var express=document.getElementById("display");
+              var results=eval(express.value);
+              express.value=results;
+
+            }
+            catch(error)
+            {
+                document.getElementById("display").value="ERROR";
+            }
+        }
+    </script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
